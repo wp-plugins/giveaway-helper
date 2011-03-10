@@ -28,12 +28,11 @@ Giveaway Helper retrieves Emails and Names of the commentators of an article (es
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Go to <em>Tools > Giveaway Helper</em> to input custom content.
 
-== Upgrade Notice ==
 
 == Screenshots ==
 
+1. Appearance
+
 == Changelog ==
+Version 1.0 - Just Released
 
-== Frequently Asked Questions ==
-
-== Donations ==
