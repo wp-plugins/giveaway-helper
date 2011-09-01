@@ -3,7 +3,7 @@ Contributors: samuelrajkumar
 Tags: comments, list, retrieve, select, names, emails, giveaway, help, remove, multiple, unique, exclude
 Requires at least: 3.1
 Tested up to: 3.1
-Stable tag: 0.1
+Stable tag: 1.1
 
 Giveaway Helper, is a wordpress plugin that was made to make bloggers’ work easier in choosing winners of a giveaway, using Random.org.
 
