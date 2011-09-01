@@ -27,7 +27,7 @@ range.select();
 		$type = $_POST['participants'];
 		$removearray = explode(",", $email);
 		if ($type=='email') {
-		$mylink = array_unique($wpdb->get_col("SELECT comment_author_email FROM $wpdb->comments WHERE comment_post_ID = $post_id AND comment_type != 'pingback'"));
+		$mylink = array_unique($wpdb->get_col( $wpdb->prepare("SELECT comment_author_email FROM $wpdb->comments WHERE comment_post_ID = $post_id AND comment_type != 'pingback' AND comment_approved != 'spam'")));
 		$result = array_diff($mylink, $removearray);
 		echo '<div class="updated"><strong><h4><u><em>Emails Addresses of Participants</em></u></h4>';
 		aboveloop();
@@ -39,12 +39,13 @@ range.select();
 		}
 		
 		else {
-		$mylink = array_unique($wpdb->get_col("SELECT comment_author FROM $wpdb->comments WHERE comment_post_ID = $post_id AND comment_type != 'pingback'"));
-		$result = array_diff($mylink,$removearray);
+		$mylink = array_unique($wpdb->get_col ($wpdb->prepare("SELECT comment_author FROM $wpdb->comments WHERE comment_post_ID = $post_id AND comment_type != 'pingback' AND comment_approved != 'spam'")));
+		$result = array_diff($mylink, $removearray);
 		echo '<div class="updated"><strong><h4><u><em>Names of Participants</em></u></h4>';
 		aboveloop();
 		foreach ($result as $value) {
-			echo '<li>'.$value.'</li>';
+			echo '<li>' . $value . '</li>';
+			$i++;
 		}
 		belowloop ();
 		}
@@ -80,14 +81,13 @@ foreach( $myposts as $post ) :	setup_postdata($post); ?>
 <?php endforeach; ?>
 </select>
 
-<p>2. Enter Email ID's you want to remove separated by <em>comma</em> (optional): <input type="text" name="admin"> </p>
+<p>2. Enter Email ID's (If you want to retrieve emails) or Names (If you want to retrieve names) you want to remove separated by <em>comma</em> (optional): <input type="text" name="admin"> </p>
 
-<p><em>E.g :</em> email1,email2,email3. Separate emails by comma only, don't add spaces or any special characters in between emails.  </p>
+<p><em>Note :</em> Separate emails or names by comma only, don't add spaces or any special characters in between emails.  </p>
 <p>3. I want to retrieve : <input type="radio" name="participants" value="email" /> Email Addresses <input type="radio" name="participants" value="name" /> Names</p>
 
 <p class="submit"> <input type="submit" value="Submit"> </p> 
 
 
     </form>  
-</div> 
-
+</div>

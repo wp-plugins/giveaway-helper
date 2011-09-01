@@ -4,7 +4,7 @@
     Plugin URI: http://www.techishare.com/giveaway-helper-a-wordpress-plugin-for-those-who-giveaway/ 
     Description: Plugin that helps you select winners through Random.org 
     Author: G. Samuel Rajkumar 
-    Version: 1.0 
+    Version: 1.1 
     Author URI: http://www.techishare.com 
     */  
 function givehelp_admin_actions() {  
